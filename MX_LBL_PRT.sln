@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29326.143
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MX_LBL_PRT", "MX_LBL_PRT\MX_LBL_PRT.csproj", "{E5E8E65A-79CE-43E8-BA37-F4889033E93B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E5E8E65A-79CE-43E8-BA37-F4889033E93B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5E8E65A-79CE-43E8-BA37-F4889033E93B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5E8E65A-79CE-43E8-BA37-F4889033E93B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5E8E65A-79CE-43E8-BA37-F4889033E93B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {35FEC4BB-37D8-42A2-B6BE-3052B2006B35}
+	EndGlobalSection
+EndGlobal
