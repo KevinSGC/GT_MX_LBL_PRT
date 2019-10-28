@@ -44,6 +44,7 @@ namespace MX_LBL_PRT
             //    button.Click += new System.EventHandler(this.buttons_Click);
             //    panel1.Controls.Add(button);
             //}
+            //
         }
 
         private void buttons_Click(object sender, EventArgs e)
