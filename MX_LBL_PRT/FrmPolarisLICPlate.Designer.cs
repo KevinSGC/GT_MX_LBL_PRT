@@ -53,6 +53,10 @@
             this.tbCustPart = new System.Windows.Forms.TextBox();
             this.tbASN = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.cbbShipFrom = new System.Windows.Forms.ComboBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.tbQty0 = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.tbCustPO0 = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
@@ -66,22 +70,20 @@
             this.dgv1 = new System.Windows.Forms.DataGridView();
             this.bn1 = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
+            this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
             this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.axAcroPDF1 = new AxAcroPDFLib.AxAcroPDF();
-            this.tbQty0 = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.tsbtnPrint = new System.Windows.Forms.ToolStripButton();
             this.bs1 = new System.Windows.Forms.BindingSource(this.components);
-            this.cbbShipFrom = new System.Windows.Forms.ComboBox();
-            this.label17 = new System.Windows.Forms.Label();
+            this.axAcroPDF1 = new AxAcroPDFLib.AxAcroPDF();
+            this.tbRel = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nupAppBoxQty)).BeginInit();
@@ -89,8 +91,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bn1)).BeginInit();
             this.bn1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.axAcroPDF1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bs1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.axAcroPDF1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -331,6 +333,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label10);
+            this.groupBox2.Controls.Add(this.tbRel);
             this.groupBox2.Controls.Add(this.label17);
             this.groupBox2.Controls.Add(this.cbbShipFrom);
             this.groupBox2.Controls.Add(this.label16);
@@ -348,9 +352,46 @@
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox2.Size = new System.Drawing.Size(605, 151);
+            this.groupBox2.Size = new System.Drawing.Size(605, 193);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(3, 55);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(76, 17);
+            this.label17.TabIndex = 12;
+            this.label17.Text = "Ship From:";
+            // 
+            // cbbShipFrom
+            // 
+            this.cbbShipFrom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbShipFrom.FormattingEnabled = true;
+            this.cbbShipFrom.Location = new System.Drawing.Point(89, 48);
+            this.cbbShipFrom.Margin = new System.Windows.Forms.Padding(4);
+            this.cbbShipFrom.Name = "cbbShipFrom";
+            this.cbbShipFrom.Size = new System.Drawing.Size(156, 24);
+            this.cbbShipFrom.TabIndex = 11;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(38, 113);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(41, 17);
+            this.label16.TabIndex = 10;
+            this.label16.Text = "QTY:";
+            // 
+            // tbQty0
+            // 
+            this.tbQty0.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.tbQty0.Location = new System.Drawing.Point(89, 110);
+            this.tbQty0.Margin = new System.Windows.Forms.Padding(4);
+            this.tbQty0.Name = "tbQty0";
+            this.tbQty0.Size = new System.Drawing.Size(99, 22);
+            this.tbQty0.TabIndex = 9;
             // 
             // label15
             // 
@@ -367,6 +408,7 @@
             this.tbCustPO0.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tbCustPO0.Location = new System.Drawing.Point(89, 80);
             this.tbCustPO0.Margin = new System.Windows.Forms.Padding(4);
+            this.tbCustPO0.MaxLength = 6;
             this.tbCustPO0.Name = "tbCustPO0";
             this.tbCustPO0.Size = new System.Drawing.Size(156, 22);
             this.tbCustPO0.TabIndex = 3;
@@ -374,7 +416,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(407, 83);
+            this.label14.Location = new System.Drawing.Point(245, 113);
             this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(68, 17);
@@ -403,10 +445,10 @@
             // 
             // btnGenerate
             // 
-            this.btnGenerate.Location = new System.Drawing.Point(89, 110);
+            this.btnGenerate.Location = new System.Drawing.Point(89, 140);
             this.btnGenerate.Margin = new System.Windows.Forms.Padding(4);
             this.btnGenerate.Name = "btnGenerate";
-            this.btnGenerate.Size = new System.Drawing.Size(84, 28);
+            this.btnGenerate.Size = new System.Drawing.Size(99, 45);
             this.btnGenerate.TabIndex = 3;
             this.btnGenerate.Text = "Generate";
             this.btnGenerate.UseVisualStyleBackColor = true;
@@ -414,7 +456,7 @@
             // 
             // nupAppBoxQty
             // 
-            this.nupAppBoxQty.Location = new System.Drawing.Point(483, 80);
+            this.nupAppBoxQty.Location = new System.Drawing.Point(321, 111);
             this.nupAppBoxQty.Margin = new System.Windows.Forms.Padding(4);
             this.nupAppBoxQty.Maximum = new decimal(new int[] {
             10,
@@ -427,7 +469,7 @@
             0,
             0});
             this.nupAppBoxQty.Name = "nupAppBoxQty";
-            this.nupAppBoxQty.Size = new System.Drawing.Size(84, 22);
+            this.nupAppBoxQty.Size = new System.Drawing.Size(56, 22);
             this.nupAppBoxQty.TabIndex = 2;
             this.nupAppBoxQty.Value = new decimal(new int[] {
             1,
@@ -460,11 +502,11 @@
             this.groupBox3.Controls.Add(this.dgv1);
             this.groupBox3.Controls.Add(this.bn1);
             this.groupBox3.Controls.Add(this.axAcroPDF1);
-            this.groupBox3.Location = new System.Drawing.Point(16, 174);
+            this.groupBox3.Location = new System.Drawing.Point(16, 216);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox3.Size = new System.Drawing.Size(605, 414);
+            this.groupBox3.Size = new System.Drawing.Size(605, 372);
             this.groupBox3.TabIndex = 5;
             this.groupBox3.TabStop = false;
             // 
@@ -479,7 +521,7 @@
             this.dgv1.Name = "dgv1";
             this.dgv1.ReadOnly = true;
             this.dgv1.RowHeadersWidth = 51;
-            this.dgv1.Size = new System.Drawing.Size(597, 364);
+            this.dgv1.Size = new System.Drawing.Size(597, 322);
             this.dgv1.TabIndex = 1;
             this.dgv1.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv1_CellEnter);
             // 
@@ -519,6 +561,24 @@
             this.bindingNavigatorCountItem.Text = "of {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
             // 
+            // bindingNavigatorMoveFirstItem
+            // 
+            this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
+            this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
+            this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorMoveFirstItem.Text = "Move first";
+            // 
+            // bindingNavigatorMovePreviousItem
+            // 
+            this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
+            this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
+            this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorMovePreviousItem.Text = "Move previous";
+            // 
             // bindingNavigatorSeparator
             // 
             this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
@@ -539,57 +599,6 @@
             this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
             this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 27);
             // 
-            // bindingNavigatorSeparator2
-            // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 27);
-            // 
-            // axAcroPDF1
-            // 
-            this.axAcroPDF1.Enabled = true;
-            this.axAcroPDF1.Location = new System.Drawing.Point(11, 50);
-            this.axAcroPDF1.Margin = new System.Windows.Forms.Padding(4);
-            this.axAcroPDF1.Name = "axAcroPDF1";
-            this.axAcroPDF1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axAcroPDF1.OcxState")));
-            this.axAcroPDF1.Size = new System.Drawing.Size(388, 204);
-            this.axAcroPDF1.TabIndex = 2;
-            // 
-            // tbQty0
-            // 
-            this.tbQty0.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.tbQty0.Location = new System.Drawing.Point(300, 80);
-            this.tbQty0.Margin = new System.Windows.Forms.Padding(4);
-            this.tbQty0.Name = "tbQty0";
-            this.tbQty0.Size = new System.Drawing.Size(99, 22);
-            this.tbQty0.TabIndex = 9;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(252, 83);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(41, 17);
-            this.label16.TabIndex = 10;
-            this.label16.Text = "QTY:";
-            // 
-            // bindingNavigatorMoveFirstItem
-            // 
-            this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
-            this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
-            this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(29, 24);
-            this.bindingNavigatorMoveFirstItem.Text = "Move first";
-            // 
-            // bindingNavigatorMovePreviousItem
-            // 
-            this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
-            this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
-            this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(29, 24);
-            this.bindingNavigatorMovePreviousItem.Text = "Move previous";
-            // 
             // bindingNavigatorMoveNextItem
             // 
             this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -607,6 +616,11 @@
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorMoveLastItem.Text = "Move last";
+            // 
+            // bindingNavigatorSeparator2
+            // 
+            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 27);
             // 
             // toolStripButton1
             // 
@@ -628,24 +642,35 @@
             this.tsbtnPrint.Text = "Print";
             this.tsbtnPrint.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
-            // cbbShipFrom
+            // axAcroPDF1
             // 
-            this.cbbShipFrom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbShipFrom.FormattingEnabled = true;
-            this.cbbShipFrom.Location = new System.Drawing.Point(89, 48);
-            this.cbbShipFrom.Margin = new System.Windows.Forms.Padding(4);
-            this.cbbShipFrom.Name = "cbbShipFrom";
-            this.cbbShipFrom.Size = new System.Drawing.Size(156, 24);
-            this.cbbShipFrom.TabIndex = 11;
+            this.axAcroPDF1.Enabled = true;
+            this.axAcroPDF1.Location = new System.Drawing.Point(11, 50);
+            this.axAcroPDF1.Margin = new System.Windows.Forms.Padding(4);
+            this.axAcroPDF1.Name = "axAcroPDF1";
+            this.axAcroPDF1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axAcroPDF1.OcxState")));
+            this.axAcroPDF1.Size = new System.Drawing.Size(240, 240);
+            this.axAcroPDF1.TabIndex = 2;
             // 
-            // label17
+            // tbRel
             // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(3, 55);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(76, 17);
-            this.label17.TabIndex = 12;
-            this.label17.Text = "Ship From:";
+            this.tbRel.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.tbRel.Location = new System.Drawing.Point(321, 81);
+            this.tbRel.Margin = new System.Windows.Forms.Padding(4);
+            this.tbRel.MaxLength = 5;
+            this.tbRel.Name = "tbRel";
+            this.tbRel.Size = new System.Drawing.Size(93, 22);
+            this.tbRel.TabIndex = 13;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(276, 83);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(33, 17);
+            this.label10.TabIndex = 14;
+            this.label10.Text = "Rel:";
             // 
             // FrmPolarisLICPlate
             // 
@@ -671,8 +696,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.bn1)).EndInit();
             this.bn1.ResumeLayout(false);
             this.bn1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.axAcroPDF1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bs1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.axAcroPDF1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -731,5 +756,7 @@
         private System.Windows.Forms.ToolStripButton tsbtnPrint;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.ComboBox cbbShipFrom;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox tbRel;
     }
 }

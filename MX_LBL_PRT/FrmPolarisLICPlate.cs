@@ -82,6 +82,11 @@ namespace MX_LBL_PRT
                 MessageBox.Show("Please keyin Cust PO!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
+            if (tbRel.Text == "")
+            {
+                MessageBox.Show("Please keyin PO Revison!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             if (tbCustPO0.Text.Length!=6)
             {
                 MessageBox.Show("PO length must be 6!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -94,6 +99,8 @@ namespace MX_LBL_PRT
             }
             try
             {
+                string ret = "0";
+                string msg = "";
                 SqlConnection conn = db.GetSqlConnection();
                 conn.Open();
                 SqlCommand cmd = new SqlCommand();
@@ -101,20 +108,28 @@ namespace MX_LBL_PRT
 
                 SqlTransaction tran = conn.BeginTransaction();
                 cmd.Transaction = tran;
-                cmd.CommandText = "MX_GEN_LBL_POLARIS";
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                cmd.Parameters.Clear();
-                cmd.Parameters.Add("@PRT_ID", System.Data.SqlDbType.VarChar, 50).Value = AppStatic.printID;
-                cmd.Parameters.Add("@PART_NO", System.Data.SqlDbType.VarChar, 50).Value = cbbCustPN.Text;
-                cmd.Parameters.Add("@SHIP_FROM", System.Data.SqlDbType.VarChar, 50).Value = cbbShipFrom.Text;
-                cmd.Parameters.Add("@SHIP_TO", System.Data.SqlDbType.VarChar, 50).Value = cbbShipTo.Text;
-                cmd.Parameters.Add("@CUST_PO", System.Data.SqlDbType.VarChar, 50).Value = tbCustPO0.Text;
-                cmd.Parameters.Add("@QTY", System.Data.SqlDbType.Int).Value = tbQty0.Text;
-                cmd.Parameters.Add("@RET", System.Data.SqlDbType.VarChar, 50).Direction = System.Data.ParameterDirection.Output;
-                cmd.Parameters.Add("@MSG", System.Data.SqlDbType.VarChar, 50).Direction = System.Data.ParameterDirection.Output;
-                cmd.ExecuteNonQuery();
-                var ret = cmd.Parameters["@RET"].Value.ToString();
-                var msg = cmd.Parameters["@MSG"].Value.ToString();
+                for (int i = 1; i <= nupAppBoxQty.Value; i++)
+                {
+                    cmd.CommandText = "MX_GEN_LBL_POLARIS";
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.Clear();
+                    cmd.Parameters.Add("@PRT_ID", System.Data.SqlDbType.VarChar, 50).Value = AppStatic.printID;
+                    cmd.Parameters.Add("@PART_NO", System.Data.SqlDbType.VarChar, 50).Value = cbbCustPN.Text;
+                    cmd.Parameters.Add("@SHIP_FROM", System.Data.SqlDbType.VarChar, 50).Value = cbbShipFrom.Text;
+                    cmd.Parameters.Add("@SHIP_TO", System.Data.SqlDbType.VarChar, 50).Value = cbbShipTo.Text;
+                    cmd.Parameters.Add("@CUST_PO", System.Data.SqlDbType.VarChar, 50).Value = tbCustPO0.Text;
+                    cmd.Parameters.Add("@REL", System.Data.SqlDbType.VarChar, 50).Value = tbRel.Text;
+                    cmd.Parameters.Add("@QTY", System.Data.SqlDbType.Int).Value = tbQty0.Text;
+                    cmd.Parameters.Add("@RET", System.Data.SqlDbType.VarChar, 50).Direction = System.Data.ParameterDirection.Output;
+                    cmd.Parameters.Add("@MSG", System.Data.SqlDbType.VarChar, 50).Direction = System.Data.ParameterDirection.Output;
+                    cmd.ExecuteNonQuery();
+                    ret = cmd.Parameters["@RET"].Value.ToString();
+                    msg = cmd.Parameters["@MSG"].Value.ToString();
+                    if(ret=="0")
+                    {
+                        break;
+                    }
+                }
                 if(ret=="1")
                 {
                     tran.Commit();
@@ -239,11 +254,11 @@ namespace MX_LBL_PRT
                         //tbShipTo.Lines[2] = drShipFrom[2].ToString();
                         //tbShipTo.Lines[3] = drShipFrom[3].ToString();
                         //tbShipTo.Lines[4] = drShipFrom[4].ToString();
-                        tbShipTo.AppendText(drShipFrom[0].ToString() + "\r\n");
-                        tbShipTo.AppendText(drShipFrom[1].ToString() + "\r\n");
-                        tbShipTo.AppendText(drShipFrom[2].ToString() + "\r\n");
-                        tbShipTo.AppendText(drShipFrom[3].ToString() + "\r\n");
-                        tbShipTo.AppendText(drShipFrom[4].ToString() + "\r\n");
+                        tbShipFrom.AppendText(drShipFrom[0].ToString() + "\r\n");
+                        tbShipFrom.AppendText(drShipFrom[1].ToString() + "\r\n");
+                        tbShipFrom.AppendText(drShipFrom[2].ToString() + "\r\n");
+                        tbShipFrom.AppendText(drShipFrom[3].ToString() + "\r\n");
+                        tbShipFrom.AppendText(drShipFrom[4].ToString() + "\r\n");
                     }
                     drShipFrom.Close();
 
@@ -257,11 +272,11 @@ namespace MX_LBL_PRT
                         //tbShipFrom.Lines[2] = drShipTo[2].ToString();
                         //tbShipFrom.Lines[3] = drShipTo[3].ToString();
                         //tbShipFrom.Lines[4] = drShipTo[4].ToString();
-                        tbShipFrom.AppendText(drShipTo[0].ToString() + "\r\n");
-                        tbShipFrom.AppendText(drShipTo[1].ToString() + "\r\n");
-                        tbShipFrom.AppendText(drShipTo[2].ToString() + "\r\n");
-                        tbShipFrom.AppendText(drShipTo[3].ToString() + "\r\n");
-                        tbShipFrom.AppendText(drShipTo[4].ToString() + "\r\n");
+                        tbShipTo.AppendText(drShipTo[0].ToString() + "\r\n");
+                        tbShipTo.AppendText(drShipTo[1].ToString() + "\r\n");
+                        tbShipTo.AppendText(drShipTo[2].ToString() + "\r\n");
+                        tbShipTo.AppendText(drShipTo[3].ToString() + "\r\n");
+                        tbShipTo.AppendText(drShipTo[4].ToString() + "\r\n");
                     }
                     drShipTo.Close();
                 }
@@ -378,8 +393,9 @@ namespace MX_LBL_PRT
                 cb.LineTo(140, 285);
                 cb.Stroke();
 
-                cb.Rectangle(1, 1, pdf.PageSize.Width - 2, pdf.PageSize.Height - 2);
-                cb.Stroke();
+                //remove the rect
+                //cb.Rectangle(1, 1, pdf.PageSize.Width - 2, pdf.PageSize.Height - 2);
+                //cb.Stroke();
 
                 var ltc = tbLotTrace.Text;
                 var lpu = tbLICPlate.Text;
