@@ -53,6 +53,8 @@
             this.tbCustPart = new System.Windows.Forms.TextBox();
             this.tbASN = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.tbRel = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.cbbShipFrom = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
@@ -80,10 +82,8 @@
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.tsbtnPrint = new System.Windows.Forms.ToolStripButton();
-            this.bs1 = new System.Windows.Forms.BindingSource(this.components);
             this.axAcroPDF1 = new AxAcroPDFLib.AxAcroPDF();
-            this.tbRel = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
+            this.bs1 = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nupAppBoxQty)).BeginInit();
@@ -91,8 +91,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bn1)).BeginInit();
             this.bn1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bs1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axAcroPDF1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bs1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -356,6 +356,26 @@
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(276, 83);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(33, 17);
+            this.label10.TabIndex = 14;
+            this.label10.Text = "Rel:";
+            // 
+            // tbRel
+            // 
+            this.tbRel.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.tbRel.Location = new System.Drawing.Point(321, 81);
+            this.tbRel.Margin = new System.Windows.Forms.Padding(4);
+            this.tbRel.MaxLength = 5;
+            this.tbRel.Name = "tbRel";
+            this.tbRel.Size = new System.Drawing.Size(93, 22);
+            this.tbRel.TabIndex = 13;
+            // 
             // label17
             // 
             this.label17.AutoSize = true;
@@ -523,7 +543,7 @@
             this.dgv1.RowHeadersWidth = 51;
             this.dgv1.Size = new System.Drawing.Size(597, 322);
             this.dgv1.TabIndex = 1;
-            this.dgv1.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv1_CellEnter);
+            this.dgv1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv1_CellClick);
             // 
             // bn1
             // 
@@ -652,26 +672,6 @@
             this.axAcroPDF1.Size = new System.Drawing.Size(240, 240);
             this.axAcroPDF1.TabIndex = 2;
             // 
-            // tbRel
-            // 
-            this.tbRel.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.tbRel.Location = new System.Drawing.Point(321, 81);
-            this.tbRel.Margin = new System.Windows.Forms.Padding(4);
-            this.tbRel.MaxLength = 5;
-            this.tbRel.Name = "tbRel";
-            this.tbRel.Size = new System.Drawing.Size(93, 22);
-            this.tbRel.TabIndex = 13;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(276, 83);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(33, 17);
-            this.label10.TabIndex = 14;
-            this.label10.Text = "Rel:";
-            // 
             // FrmPolarisLICPlate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -696,8 +696,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.bn1)).EndInit();
             this.bn1.ResumeLayout(false);
             this.bn1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bs1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.axAcroPDF1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bs1)).EndInit();
             this.ResumeLayout(false);
 
         }

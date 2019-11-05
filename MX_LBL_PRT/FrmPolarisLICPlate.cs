@@ -228,69 +228,6 @@ namespace MX_LBL_PRT
             }
         }
 
-        private void dgv1_CellEnter(object sender, DataGridViewCellEventArgs e)
-        {
-            if(dgv1.SelectedCells!=null)
-            {
-                this.ClearText();
-                string shipfrom= dgv1[1, e.RowIndex].Value.ToString();
-                string shipto = dgv1[2, e.RowIndex].Value.ToString();
-                //1.find the ship from address
-                //2.find the ship to address
-                //3.show the address
-                using(SqlConnection conn = db.GetSqlConnection())
-                {
-                    conn.Open();
-                    SqlCommand cmd = new SqlCommand();
-                    cmd.Connection = conn;
-
-                    //show shipfrom
-                    cmd.CommandText = "SELECT ADDR1,ADDR2,ADDR3,ADDR4,ADDR5 FROM MX_SHIP_FROM WHERE SHIP_FROM='" + shipfrom + "'";
-                    SqlDataReader drShipFrom = cmd.ExecuteReader();
-                    if(drShipFrom.Read())
-                    {
-                        //tbShipTo.Lines[0] = drShipFrom[0].ToString();
-                        //tbShipTo.Lines[1] = drShipFrom[1].ToString();
-                        //tbShipTo.Lines[2] = drShipFrom[2].ToString();
-                        //tbShipTo.Lines[3] = drShipFrom[3].ToString();
-                        //tbShipTo.Lines[4] = drShipFrom[4].ToString();
-                        tbShipFrom.AppendText(drShipFrom[0].ToString() + "\r\n");
-                        tbShipFrom.AppendText(drShipFrom[1].ToString() + "\r\n");
-                        tbShipFrom.AppendText(drShipFrom[2].ToString() + "\r\n");
-                        tbShipFrom.AppendText(drShipFrom[3].ToString() + "\r\n");
-                        tbShipFrom.AppendText(drShipFrom[4].ToString() + "\r\n");
-                    }
-                    drShipFrom.Close();
-
-                    //show shipto
-                    cmd.CommandText = "SELECT ADDR1,ADDR2,ADDR3,ADDR4,ADDR5 FROM MX_SHIP_TO WHERE SHIP_TO='" + shipto + "'";
-                    SqlDataReader drShipTo = cmd.ExecuteReader();
-                    if (drShipTo.Read())
-                    {
-                        //tbShipFrom.Lines[0] = drShipTo[0].ToString();
-                        //tbShipFrom.Lines[1] = drShipTo[1].ToString();
-                        //tbShipFrom.Lines[2] = drShipTo[2].ToString();
-                        //tbShipFrom.Lines[3] = drShipTo[3].ToString();
-                        //tbShipFrom.Lines[4] = drShipTo[4].ToString();
-                        tbShipTo.AppendText(drShipTo[0].ToString() + "\r\n");
-                        tbShipTo.AppendText(drShipTo[1].ToString() + "\r\n");
-                        tbShipTo.AppendText(drShipTo[2].ToString() + "\r\n");
-                        tbShipTo.AppendText(drShipTo[3].ToString() + "\r\n");
-                        tbShipTo.AppendText(drShipTo[4].ToString() + "\r\n");
-                    }
-                    drShipTo.Close();
-                }
-                tbASN.Text = dgv1[3, e.RowIndex].Value.ToString();
-                tbCustPart.Text= dgv1[4, e.RowIndex].Value.ToString();
-                tbPartDesc.Text= dgv1[5, e.RowIndex].Value.ToString();
-                tbREV.Text= dgv1[6, e.RowIndex].Value.ToString();
-                tbCustPO.Text= dgv1[7, e.RowIndex].Value.ToString();
-                tbQTY.Text= dgv1[8, e.RowIndex].Value.ToString();
-                tbLICPlate.Text= dgv1[9, e.RowIndex].Value.ToString();
-                tbLotTrace.Text= dgv1[10, e.RowIndex].Value.ToString();
-            }
-        }
-
         private void ClearText()
         {
             tbShipFrom.Clear();
@@ -543,6 +480,69 @@ namespace MX_LBL_PRT
             finally
             {
                 btnPrint.Enabled = true;
+            }
+        }
+
+        private void dgv1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgv1.SelectedCells != null)
+            {
+                this.ClearText();
+                string shipfrom = dgv1[1, e.RowIndex].Value.ToString();
+                string shipto = dgv1[2, e.RowIndex].Value.ToString();
+                //1.find the ship from address
+                //2.find the ship to address
+                //3.show the address
+                using (SqlConnection conn = db.GetSqlConnection())
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.Connection = conn;
+
+                    //show shipfrom
+                    cmd.CommandText = "SELECT ADDR1,ADDR2,ADDR3,ADDR4,ADDR5 FROM MX_SHIP_FROM WHERE SHIP_FROM='" + shipfrom + "'";
+                    SqlDataReader drShipFrom = cmd.ExecuteReader();
+                    if (drShipFrom.Read())
+                    {
+                        //tbShipTo.Lines[0] = drShipFrom[0].ToString();
+                        //tbShipTo.Lines[1] = drShipFrom[1].ToString();
+                        //tbShipTo.Lines[2] = drShipFrom[2].ToString();
+                        //tbShipTo.Lines[3] = drShipFrom[3].ToString();
+                        //tbShipTo.Lines[4] = drShipFrom[4].ToString();
+                        tbShipFrom.AppendText(drShipFrom[0].ToString() + "\r\n");
+                        tbShipFrom.AppendText(drShipFrom[1].ToString() + "\r\n");
+                        tbShipFrom.AppendText(drShipFrom[2].ToString() + "\r\n");
+                        tbShipFrom.AppendText(drShipFrom[3].ToString() + "\r\n");
+                        tbShipFrom.AppendText(drShipFrom[4].ToString() + "\r\n");
+                    }
+                    drShipFrom.Close();
+
+                    //show shipto
+                    cmd.CommandText = "SELECT ADDR1,ADDR2,ADDR3,ADDR4,ADDR5 FROM MX_SHIP_TO WHERE SHIP_TO='" + shipto + "'";
+                    SqlDataReader drShipTo = cmd.ExecuteReader();
+                    if (drShipTo.Read())
+                    {
+                        //tbShipFrom.Lines[0] = drShipTo[0].ToString();
+                        //tbShipFrom.Lines[1] = drShipTo[1].ToString();
+                        //tbShipFrom.Lines[2] = drShipTo[2].ToString();
+                        //tbShipFrom.Lines[3] = drShipTo[3].ToString();
+                        //tbShipFrom.Lines[4] = drShipTo[4].ToString();
+                        tbShipTo.AppendText(drShipTo[0].ToString() + "\r\n");
+                        tbShipTo.AppendText(drShipTo[1].ToString() + "\r\n");
+                        tbShipTo.AppendText(drShipTo[2].ToString() + "\r\n");
+                        tbShipTo.AppendText(drShipTo[3].ToString() + "\r\n");
+                        tbShipTo.AppendText(drShipTo[4].ToString() + "\r\n");
+                    }
+                    drShipTo.Close();
+                }
+                tbASN.Text = dgv1[3, e.RowIndex].Value.ToString();
+                tbCustPart.Text = dgv1[4, e.RowIndex].Value.ToString();
+                tbPartDesc.Text = dgv1[5, e.RowIndex].Value.ToString();
+                tbREV.Text = dgv1[6, e.RowIndex].Value.ToString();
+                tbCustPO.Text = dgv1[7, e.RowIndex].Value.ToString();
+                tbQTY.Text = dgv1[8, e.RowIndex].Value.ToString();
+                tbLICPlate.Text = dgv1[9, e.RowIndex].Value.ToString();
+                tbLotTrace.Text = dgv1[10, e.RowIndex].Value.ToString();
             }
         }
     }
